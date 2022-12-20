@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./apps/server
+      dockerfile: Dockerfile.local
+    restart: always
+    env_file: .env
+    volumes:
+      - ./apps/server:/svr/app
+      - "./scripts/wait.sh:/wait.sh"
+      - /svr/app/node_modules
+    # networks:
+    #   - bp-network
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    # depends_on:
+    #   - gh-pg-db
+    # links:
+    #   - gh-pg-db
