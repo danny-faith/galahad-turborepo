@@ -11,12 +11,12 @@
 FROM node:14-alpine
 RUN mkdir -p /svr/app
 WORKDIR /svr/app
-RUN npm i -g @nestjs/cli
+RUN npm i -g @nestjs/cli --silent
 COPY package.json .
-RUN npm install
+RUN npm install --silent
 COPY . .
 # Value set in .env file.
-# EXPOSE $BACKEND_PORT
-EXPOSE 3004
+EXPOSE $BACKEND_PORT
+# EXPOSE 3004
 # CMD ["npm", "run", "start:debug"]
 CMD ["npm", "run", "dev"]
