@@ -15,8 +15,8 @@ services:
     # networks:
     #   - bp-network
     ports:
-      - "3004:3004"
-      # - "${BACKEND_PORT}:${BACKEND_PORT}"
+      # - "3004:3004"
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
     # depends_on:
     #   - gh-pg-db
     # links:
